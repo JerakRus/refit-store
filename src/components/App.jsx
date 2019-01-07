@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  render() {
+    componentWillMount() {
+
+    }
+
+    render() {
       const { parts } = this.props;
       return (
         <div>
