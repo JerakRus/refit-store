@@ -12,7 +12,7 @@ export default class MenuTop extends Component {
     render() {
         const { page } = this.props;
         return (
-            <Menu secondary>
+            <Menu color='green'>
                 <Menu.Item active={page === 'Home'} onClick={this.handleItemClick('Home')}>
                     Главная
                 </Menu.Item>
