@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
 
 class App extends Component {
     componentWillMount() {
@@ -9,9 +10,7 @@ class App extends Component {
       const { parts } = this.props;
       return (
         <div>
-            <ul>
-                {parts.map(part => <li key={part.id}>{part.id} {part.name}</li>)}
-            </ul>
+            { <Card.Group items={parts} onClick={() => console.log('click')} /> }
         </div>
       );
   }
