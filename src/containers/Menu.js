@@ -1,18 +1,15 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import App from '../components/App';
-import Home from '../components/Home'
-
-
+import Menu from '../components/Menu';
+import * as actions from '../actions/Menu';
 
 const mapStateToProps = state => {
     const props = {
-        body: <Home />,
+        page: state.menu.page,
     };
     return props;
-};
+}
 
 export default connect(
     mapStateToProps,
-)(App);
-
+    actions,
+)(Menu);

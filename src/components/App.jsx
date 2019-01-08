@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Card } from 'semantic-ui-react';
+import {Card, Container } from 'semantic-ui-react';
+import MenuContainer from '../containers/Menu';
+import Logo from './logo';
+import Home from './Home';
+//import Body from './Body';
+
 
 class App extends Component {
     componentWillMount() {
@@ -7,11 +12,12 @@ class App extends Component {
     }
 
     render() {
-      const { parts } = this.props;
       return (
-        <div>
-            { <Card.Group items={parts} onClick={() => console.log('click')} /> }
-        </div>
+        <Container>
+            <Logo />
+             <MenuContainer />
+            {this.props.body}
+        </Container>
       );
   }
 }
