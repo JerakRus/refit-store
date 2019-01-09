@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
 
-const HomePage = () => (
+const Home = () => (
     <Container text textAlign='left'>
         <Header as='h2'>Немного о Нас</Header>
         <p>
@@ -38,4 +38,4 @@ const HomePage = () => (
     </Container>
 );
 
-export default HomePage;
+export default Home;

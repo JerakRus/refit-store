@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import parts from './Parts';
+import parts from './shop/Parts';
 import menu from './Menu';
 
 export default combineReducers({

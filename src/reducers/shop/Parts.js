@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import * as actions from '../actions/Parts';
+import * as actions from '../../actions/Parts';
 
 const initialState = [
     { meta: 0, header: 'frontCam', description: 5 },
