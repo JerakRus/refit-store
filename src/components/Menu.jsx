@@ -23,12 +23,11 @@ export default class MenuTop extends Component {
                     Контакты
                 </Menu.Item>
                 <Menu.Menu position='right'>
-                    <Menu.Item>
-                        <Input icon='search' placeholder='Поиск...' />
-                    </Menu.Item>
-                    <Menu.Item active={menuPage === 'LogIn'} onClick={this.handleItemClick('LogIn')}>
-                        Войти
-                    </Menu.Item>
+                    { menuPage === 'Shop' &&
+                        <Menu.Item active={menuPage === 'LogIn'} onClick={this.handleItemClick('LogIn')}>
+                            Корзина
+                        </Menu.Item>
+                    }
                 </Menu.Menu>
             </Menu>
         );

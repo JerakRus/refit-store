@@ -4,7 +4,7 @@ import * as actions from '../actions/asyncActions';
 
 const mapStateToProps = state => {
     const props = {
-        parts: Object.values(state.parts),
+        parts: state.parts,
         siteColor: state.siteColor
     };
     return props;

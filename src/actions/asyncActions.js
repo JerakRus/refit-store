@@ -6,11 +6,19 @@ export const setPartsRequest = createAction('SET_PARTS_REQUEST');
 export const setPartsSuccess = createAction('SET_PARTS_SUCCESS');
 export const setPartsFailure = createAction('SET_PARTS_FAILURE');
 
+export const setModelsParts = createAction('SET_MODELS_PARTS');
+
 export const setParts = () => async (dispatch) => {
     dispatch(setPartsRequest());
     try {
         const response = await axios.get('/parts.json');
         dispatch(setPartsSuccess({ parts: response.data }));
+        const models = response.data.reduce((acc, item) => {
+            const md = `${item.firm} ${item.model}`;
+            console.log(md);
+            return acc.includes(md) ? acc : [...acc, md];
+        }, []);
+        dispatch(setModelsParts(models));
     } catch (e) {
         console.log(e);
         dispatch(setPartsFailure());
