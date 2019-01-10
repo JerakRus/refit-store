@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import parts from './shop/Parts';
-import menu from './Menu';
+import { parts, partsSetState }  from "./shop/Parts";
+import { menuPage, siteColor } from './Menu';
 
 export default combineReducers({
     parts,
-    menu,
+    partsSetState,
+    menuPage,
+    siteColor,
 });

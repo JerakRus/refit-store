@@ -1,12 +1,12 @@
 import React from 'react';
 import Home from "./Home";
 import Contacts from "./Contacts";
-import Shop from "./Shop";
+import Shop from "../../containers/Shop";
 import LogIn from "./LogIn";
 
 
-const Body = ({page}) => {
-    switch (page) {
+const Body = ({menuPage}) => {
+    switch (menuPage) {
         case ('Home'):
             return <Home />;
         case ('Contacts'):

@@ -4,7 +4,8 @@ import * as actions from '../actions/Menu';
 
 const mapStateToProps = state => {
     const props = {
-        page: state.menu.page,
+        menuPage: state.menuPage,
+        siteColor: state.siteColor,
     };
     return props;
 }

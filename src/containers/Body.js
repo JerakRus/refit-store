@@ -4,7 +4,7 @@ import Body from '../components/body';
 
 const mapStateToProps = state => {
     const props = {
-        page: state.menu.page,
+        menuPage: state.menuPage,
     };
     return props;
 };

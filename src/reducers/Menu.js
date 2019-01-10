@@ -1,14 +1,13 @@
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions/Menu';
 
-const initialState = {
-    page: 'Home',
-};
 
-const menu = handleActions({
+export const menuPage = handleActions({
     [actions.switchPage](state, { payload }) {
-        return {...state, page: payload };
+        return payload;
     }
-}, initialState);
+}, 'Home');
 
-export default menu;
+export const siteColor = () => {
+    return { color: "green" };
+};

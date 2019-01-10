@@ -4,29 +4,29 @@ import { Input, Menu} from 'semantic-ui-react';
 
 export default class MenuTop extends Component {
 
-    handleItemClick = page => e =>{
-        this.props.switchPage(page);
+    handleItemClick = menuPage => e =>{
+        this.props.switchPage(menuPage);
     }
 
 
     render() {
-        const { page } = this.props;
+        const { menuPage, siteColor } = this.props;
         return (
-            <Menu color='green'>
-                <Menu.Item active={page === 'Home'} onClick={this.handleItemClick('Home')}>
+            <Menu {...siteColor}>
+                <Menu.Item active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
                     Главная
                 </Menu.Item>
-                <Menu.Item active={page === 'Shop'} onClick={this.handleItemClick('Shop')}>
+                <Menu.Item active={menuPage === 'Shop'} onClick={this.handleItemClick('Shop')}>
                     Магазин
                 </Menu.Item>
-                <Menu.Item active={page === 'Contacts'} onClick={this.handleItemClick('Contacts')}>
+                <Menu.Item active={menuPage === 'Contacts'} onClick={this.handleItemClick('Contacts')}>
                     Контакты
                 </Menu.Item>
                 <Menu.Menu position='right'>
                     <Menu.Item>
                         <Input icon='search' placeholder='Поиск...' />
                     </Menu.Item>
-                    <Menu.Item active={page === 'LogIn'} onClick={this.handleItemClick('LogIn')}>
+                    <Menu.Item active={menuPage === 'LogIn'} onClick={this.handleItemClick('LogIn')}>
                         Войти
                     </Menu.Item>
                 </Menu.Menu>
