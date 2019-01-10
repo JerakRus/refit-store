@@ -1,0 +1,20 @@
+[
+  {
+    "id": 666,
+    "price": 105,
+    "title": "Iphone 6s 64 gb",
+    "firm": "Apple",
+    "model": "6s",
+    "description":"супер айфон, ваще четкий ",
+    "image": "link"
+  },
+  {
+    "id": 6668,
+    "price": 105,
+    "title": "J5",
+    "firm": "Samsung",
+    "model": "J5",
+    "description":"супер самсунг, ваще четкий ",
+    "image": "link"
+  }
+]
