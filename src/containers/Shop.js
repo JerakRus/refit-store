@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Shop from '../components/body/Shop';
-import * as actions from '../actions/asyncActions';
 
 const mapStateToProps = state => {
     const props = {
@@ -12,5 +11,4 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    actions,
 )(Shop);

@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions';
-import * as actions from '../../actions/asyncActions';
+import * as actions from '../../actions/parts';
+
 
 
 const initialState = [
@@ -24,3 +25,5 @@ export const parts = handleActions({
         return [...state, ...parts];
     },
 }, initialState);
+
+

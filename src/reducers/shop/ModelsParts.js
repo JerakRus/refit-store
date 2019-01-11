@@ -1,9 +1,9 @@
-import * as actions from "../../actions/asyncActions";
+import { setModelsParts } from "../../actions/parts";
 import { handleActions } from 'redux-actions';
 
 
 export const modelsParts = handleActions({
-    [actions.setModelsParts] (state, { payload }) {
+    [setModelsParts] (state, { payload }) {
         console.log(payload);
         return payload;
     }

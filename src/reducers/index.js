@@ -4,14 +4,17 @@ import { menuPage, siteColor } from './Menu';
 import { modelsParts } from './shop/ModelsParts';
 import { smartphonesSetState, smartphones } from './shop/smartphones';
 import { modelsSmartphones } from './shop/ModelsSmartphones';
+import { numbers, numbersSetState} from "./shop/Numbers";
 
 export default combineReducers({
+    menuPage,
+    siteColor,
     parts,
     modelsParts,
     partsSetState,
     smartphones,
     modelsSmartphones,
     smartphonesSetState,
-    menuPage,
-    siteColor,
+    numbers,
+    numbersSetState,
 });

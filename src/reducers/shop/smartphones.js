@@ -1,23 +1,23 @@
 import { handleActions } from 'redux-actions';
-import * as actions from '../../actions/asyncActions';
+import * as actionsSmartphones from '../../actions/smartphones';
 
 
 
 
 export const smartphonesSetState = handleActions({
-    [actions.setSmartphonesRequest]() {
+    [actionsSmartphones.setSmartphonesRequest]() {
         return 'requested';
     },
-    [actions.setSmartphonesSuccess]() {
+    [actionsSmartphones.setSmartphonesSuccess]() {
         return 'successed';
     },
-    [actions.setSmartphonesFailure]() {
+    [actionsSmartphones.setSmartphonesFailure]() {
         return 'failed';
     },
-}, 'none');
+}, 'none')
 
 export const smartphones = handleActions({
-    [actions.setSmartphonesSuccess](state, { payload: { parts } }) {
+    [actionsSmartphones.setSmartphonesSuccess](state, { payload: { parts } }) {
         return [...state, ...parts];
     },
 }, []);

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Menu from '../components/Menu';
-import * as actions from '../actions/Menu';
+import * as actionsMenu from '../actions/Menu';
 
 const mapStateToProps = state => {
     const props = {
@@ -12,5 +12,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    actions,
+    actionsMenu,
 )(Menu);

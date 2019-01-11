@@ -10,6 +10,7 @@ class App extends Component {
     componentWillMount() {
         this.props.setParts();
         this.props.setSmartphones();
+        this.props.setNumbers();
     }
 
     render() {

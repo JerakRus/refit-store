@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Segment, Grid} from 'semantic-ui-react';
+import { Card, Grid} from 'semantic-ui-react';
 import Part from './Part';
 import FilterContainer from '../../containers/Filter';
 
