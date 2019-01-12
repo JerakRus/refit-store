@@ -15,7 +15,7 @@ export const setSmartphones = () => async (dispatch) => {
     dispatch(setSmartphonesRequest());
     try {
         const response = await axios.get('/smartphones.json');
-        dispatch(setSmartphonesSuccess({ parts: response.data }));
+        dispatch(setSmartphonesSuccess({ smartphones: response.data }));
         const models = response.data.reduce((acc, item) => {
             const md = `${item.firm}`;
             return acc.includes(md) ? acc : [...acc, md];

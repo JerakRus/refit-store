@@ -6,7 +6,7 @@
     "firm": "Apple",
     "model": "6s",
     "description":"супер айфон, ваще четкий ",
-    "image": "link"
+    "image": "/images/phones/refitstore.jpg"
   },
   {
     "id": 6668,
@@ -15,6 +15,6 @@
     "firm": "Samsung",
     "model": "J5",
     "description":"супер самсунг, ваще четкий ",
-    "image": "link"
+    "image": "/images/phones/refitstore.jpg"
   }
 ]

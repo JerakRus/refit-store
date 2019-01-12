@@ -6,6 +6,7 @@ export default class MenuTop extends Component {
 
     handleItemClick = menuPage => e =>{
         this.props.switchPage(menuPage);
+        this.props.reset();
     }
 
 
@@ -13,23 +14,24 @@ export default class MenuTop extends Component {
         const { menuPage, siteColor } = this.props;
         return (
             <Menu {...siteColor}>
-                <Menu.Item active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
+                <Menu.Item name="Home" active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
                     Главная &nbsp;
                     <Icon name='home' color="green"/>
                 </Menu.Item>
-                <Menu.Item active={menuPage === 'Shop'} onClick={this.handleItemClick('Shop')}>
+                <Menu.Item name="Shop" active={menuPage === 'Shop'} onClick={this.handleItemClick('Shop')}>
                     Магазин &nbsp;
                     <Icon name='cart plus' color="blue" />
                 </Menu.Item>
-                <Menu.Item active={menuPage === 'Contacts'} onClick={this.handleItemClick('Contacts')}>
+                <Menu.Item name="Contacts" active={menuPage === 'Contacts'} onClick={this.handleItemClick('Contacts')}>
                     Контакты &nbsp;
                     <Icon name='address book outline' color ="black"/>
                 </Menu.Item>
                 <Menu.Menu position='right'>
                     { menuPage === 'Shop' &&
-                        <Menu.Item active={menuPage === 'LogIn'} onClick={this.handleItemClick('LogIn')}>
-                            Корзина &nbsp;
+                        <Menu.Item name="Cart" active={menuPage === 'Cart'} onClick={this.handleItemClick('Cart')}>
                             <Icon name='cart arrow down' color="red"/>
+                            &nbsp;`Корзина &nbsp;
+                            ({this.props.count})
                         </Menu.Item>
                     }
                     <Menu.Item fitted="vertically"  link href="https://api.whatsapp.com/send?phone=79999899947&text=" target="_blank">

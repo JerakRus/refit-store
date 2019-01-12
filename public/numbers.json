@@ -1,12 +1,18 @@
 [
   {
     "id": 32,
-    "number": "555-55-55",
-    "operator": "megafon"
+    "title": "555-55-55",
+    "firm": "megafon",
+    "price": 1500,
+    "description": "text",
+    "model": ""
   },
   {
     "id": 33,
-    "number": "555-55-55",
-    "operator": "megafon"
+    "title": "555-55-56",
+    "firm": "megafon",
+    "price": 1500,
+    "description": "text",
+    "model": ""
   }
 ]

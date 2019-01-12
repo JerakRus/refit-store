@@ -1,8 +1,9 @@
 import React from 'react';
 import Home from "./Home";
 import Contacts from "./Contacts";
-import Shop from "../../containers/Shop";
-import LogIn from "./LogIn";
+import CartContainer from "../../containers/Cart";
+import ShopContainer from "../../containers/Shop";
+
 
 
 const Body = ({menuPage}) => {
@@ -12,9 +13,9 @@ const Body = ({menuPage}) => {
         case ('Contacts'):
             return <Contacts />;
         case ('Shop'):
-            return <Shop />;
-        case ('LogIn'):
-            return <LogIn />;
+            return <ShopContainer />;
+        case ('Cart'):
+            return <CartContainer />;
         default:
             return <Home />;
     }

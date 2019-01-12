@@ -1,25 +1,37 @@
 import React, { Component } from 'react'
-import { Dropdown, Icon, Input, Menu } from 'semantic-ui-react'
+import { Input, Menu } from 'semantic-ui-react'
 import _ from 'lodash';
 
-export default class MenuExampleSubMenu extends Component {
-    state = {}
+export default class FilterMenu extends Component {
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    handleParts = (e, { name }) => {
+        this.props.setFilterParts(name);
+    }
+
+    handleSmartphones = (e, { name }) => {
+        this.props.setFilterSmartphones(name);
+    }
+
+    handleSearch = (e) => {
+        this.props.setSearchQuery(e.target.value);
+    }
 
     renderParts() {
-        const { activeItem } = this.state;
         const { modelsParts } = this.props;
+        const activeItem = this.props.filter.parts;
 
         return (
             <Menu.Item >
                 Запчасти и Комплектующие
                 <Menu.Menu>
+                    <Menu.Item name="all" active={activeItem === "all"} onClick={this.handleParts}>
+                        Все
+                    </Menu.Item>
                     {modelsParts.map(model => (
                         <Menu.Item key={_.uniqueId()}
                                    name={model}
-                                   active={activeItem === {model}}
-                                   onClick={this.handleItemClick}>
+                                   active={activeItem === model}
+                                   onClick={this.handleParts}>
                             {model}
                         </Menu.Item>
                     ))}
@@ -29,18 +41,21 @@ export default class MenuExampleSubMenu extends Component {
     }
 
     renderSmartphones () {
-        const { activeItem } = this.state;
         const { modelsSmartphones } = this.props;
+        const activeItem = this.props.filter.smartphones;
 
         return (
             <Menu.Item>
                 Телефоны
                 <Menu.Menu>
+                    <Menu.Item name="all" active={activeItem === "all"} onClick={this.handleSmartphones}>
+                        Все
+                    </Menu.Item>
                     {modelsSmartphones.map(model => (
                         <Menu.Item key={_.uniqueId()}
                                    name={model}
-                                   active={activeItem === {model}}
-                                   onClick={this.handleItemClick}>
+                                   active={activeItem === model}
+                                   onClick={this.handleSmartphones}>
                             {model}
                         </Menu.Item>
                     ))}
@@ -49,21 +64,25 @@ export default class MenuExampleSubMenu extends Component {
         )
     }
 
-    render() {
-        const { activeItem } = this.state;
-
+    renderNumbers() {
+        const activeItem = this.props.filter.numbers;
         return (
-            <Menu vertical color="green" >
+            <Menu.Item name='number' active={activeItem === 'all'} onClick={this.props.setFilterNumbers.bind(this, 'all')}>
+                Красивые номера
+            </Menu.Item>
+        );
+    }
+
+    render() {
+        return (
+            <Menu vertical {...this.props.siteColor}>
                 <Menu.Item>
-                    <Input placeholder='Поиск...' />
+                    <Input placeholder='Поиск...' icon="search" value={this.props.filter.searchQuery} onChange={this.handleSearch} />
                 </Menu.Item>
                 {this.props.modelsParts && this.renderParts()}
                 {this.props.modelsSmartphones && this.renderSmartphones()}
-                <Menu.Item name='number' active={activeItem === 'browse'} onClick={this.handleItemClick}>
-                    <Icon name='grid layout' />
-                    Красивые номера
-                </Menu.Item>
+                {this.renderNumbers()}
             </Menu>
-        )
+        );
     }
 }

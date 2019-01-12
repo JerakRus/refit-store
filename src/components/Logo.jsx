@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image } from 'semantic-ui-react';
-import logo from '../images/logo.jpg';
 
-const Logo = () => <Image src={logo} fluid />
+const Logo = () => <Image src="/images/logo.jpg" fluid />
 
 export default Logo;

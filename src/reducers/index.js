@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { parts, partsSetState }  from "./shop/Parts";
 import { menuPage, siteColor } from './Menu';
-import { modelsParts } from './shop/ModelsParts';
+import { parts, partsSetState }  from "./shop/Parts";
 import { smartphonesSetState, smartphones } from './shop/smartphones';
-import { modelsSmartphones } from './shop/ModelsSmartphones';
 import { numbers, numbersSetState} from "./shop/Numbers";
+import { modelsParts } from './shop/ModelsParts';
+import { modelsSmartphones } from './shop/ModelsSmartphones';
+import filter from './Filter';
+import cart from "./Cart";
 
 export default combineReducers({
     menuPage,
@@ -17,4 +19,7 @@ export default combineReducers({
     smartphonesSetState,
     numbers,
     numbersSetState,
+    filter,
+    cart,
 });
+

@@ -1,9 +1,6 @@
 import { handleActions } from 'redux-actions';
 import * as actionsSmartphones from '../../actions/smartphones';
 
-
-
-
 export const smartphonesSetState = handleActions({
     [actionsSmartphones.setSmartphonesRequest]() {
         return 'requested';
@@ -17,7 +14,8 @@ export const smartphonesSetState = handleActions({
 }, 'none')
 
 export const smartphones = handleActions({
-    [actionsSmartphones.setSmartphonesSuccess](state, { payload: { parts } }) {
-        return [...state, ...parts];
+    [actionsSmartphones.setSmartphonesSuccess](state, { payload: { smartphones } }) {
+        return [...state, ...smartphones];
     },
 }, []);
+

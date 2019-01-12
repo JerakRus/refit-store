@@ -1,23 +1,23 @@
 import { connect } from 'react-redux';
-import Menu from '../components/Menu';
+import ItemShop from '../components/body/ItemShop';
 import * as actionsMenu from '../actions/Menu';
-import { reset } from '../actions/filter';
+import { addToCart } from '../actions/cart';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, { item: { id }}) => {
     const props = {
         menuPage: state.menuPage,
         siteColor: state.siteColor,
-        count: state.cart.items.reduce((acc, item) => acc + 1, 0),
+        addedCount: state.cart.items.reduce((acc, i) => i.id === id ? acc + 1 : acc, 0),
     };
     return props;
 };
 
 const actions = {
     ...actionsMenu,
-    reset,
+    addToCart,
 };
 
 export default connect(
     mapStateToProps,
     actions,
-)(Menu);
+)(ItemShop);

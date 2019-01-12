@@ -2,7 +2,6 @@ import React from 'react';
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 
-export const setFilterParts = createAction('SET_FILTER_PARTS');
 
 //I get a list of parts from the server, I add to the state and create a list of models parts.
 //It is used to automatic display the filter for all available models.
