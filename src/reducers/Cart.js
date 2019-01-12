@@ -4,8 +4,6 @@ import { combineReducers } from "redux";
 
 const initState = {
     items: [],
-    count: 0,
-    total: 0,
 };
 
 const items = handleActions({
