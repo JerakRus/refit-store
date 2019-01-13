@@ -15,10 +15,11 @@ const devtoolMiddleware = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_
 
 const store = createStore(
     rootReducer,
-    compose(
-        applyMiddleware(thunk),
-        //devtoolMiddleware,
-    ),
+    applyMiddleware(thunk),
+   /* compose(
+
+        devtoolMiddleware,
+    ),*/
 );
 
 ReactDOM.render(
