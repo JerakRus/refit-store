@@ -35,14 +35,14 @@ const sortNumbers = (items, filterNumbers) => {
         return items;
     }
     return [];
-}
+};
 
 const mapStateToProps = state => {
-    const { filter } = state;
+    const { filter, numbers, parts, smartphones } = state;
     const props = {
-        parts: search(sortParts(state.parts, filter.parts), filter.searchQuery),
-        smartphones: search(sortSmartphones(state.smartphones, filter.smartphones), filter.searchQuery),
-        numbers: search(sortNumbers(state.numbers, filter.numbers), filter.searchQuery),
+        parts: search(sortParts(parts.items, filter.parts), filter.searchQuery),
+        smartphones: search(sortSmartphones(smartphones.items, filter.smartphones), filter.searchQuery),
+        numbers: search(sortNumbers(numbers.items, filter.numbers), filter.searchQuery),
         siteColor: state.siteColor,
     };
     return props;

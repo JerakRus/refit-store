@@ -10,8 +10,8 @@ import AppContainer from './containers/App';
 import 'semantic-ui-css/semantic.min.css';
 
 
-const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
-const devtoolMiddleware = ext && ext();
+
+const devtoolMiddleware = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = createStore(
     rootReducer,
@@ -27,4 +27,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-

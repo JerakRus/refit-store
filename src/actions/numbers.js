@@ -1,4 +1,3 @@
-import React from 'react';
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 
@@ -17,5 +16,5 @@ export const setNumbers = () => async (dispatch) => {
     } catch (e) {
         console.log(e);
         dispatch(setNumbersFailure());
-    };
+    }
 };

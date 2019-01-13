@@ -4,7 +4,10 @@ import _ from 'lodash';
 
 const Cart = (props) => {
     const { items } = props;
-    console.log(props);
+
+    const handlerAdd = item => e => {
+        props.addToCart(item);
+    };
     const handlerRemove = item => e => {
         props.removeFromCart(item);
     };
@@ -39,11 +42,13 @@ const Cart = (props) => {
                                <Item.Meta>{item.firm}</Item.Meta>
                                <Item.Description>{item.description}</Item.Description>
                                <br />
-                               {item.price}<Icon name="rub" />
+                               {item.price}<Icon name="rub" /> &nbsp; х &nbsp; {item.addCount} &nbsp; шт.
+                               <Button basic compact {...props.siteColor} floated='right' onClick={handlerAdd(item)}>
+                                   Добавить
+                               </Button>
                                <Button basic compact color="red" floated='right' onClick={handlerRemove(item)}>
                                    Удалить
                                </Button>
-
                            </Item.Content>
                            </Item>
                    ))}

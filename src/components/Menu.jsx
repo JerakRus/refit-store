@@ -7,7 +7,7 @@ export default class MenuTop extends Component {
     handleItemClick = menuPage => e =>{
         this.props.switchPage(menuPage);
         this.props.reset();
-    }
+    };
 
 
     render() {

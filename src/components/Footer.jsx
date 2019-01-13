@@ -3,7 +3,7 @@ import { Segment } from 'semantic-ui-react'
 
 const colorText = {
         color: 'grey',
-}
+};
 
 const Footer = (siteColor) => (
     <div>

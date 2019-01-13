@@ -33,7 +33,6 @@ export default class Shop extends React.Component {
         );
     }
 
-
     render () {
         return (
             <Grid>

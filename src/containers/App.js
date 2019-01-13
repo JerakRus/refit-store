@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import App from '../components/App';
 import * as actionsParts from '../actions/parts';
 import * as actionsSmartphones from '../actions/smartphones';

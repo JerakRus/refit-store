@@ -5,7 +5,8 @@
     "firm": "megafon",
     "price": 1500,
     "description": "text",
-    "model": ""
+    "model": "",
+    "addCount": 0
   },
   {
     "id": 33,
@@ -13,6 +14,7 @@
     "firm": "megafon",
     "price": 1500,
     "description": "text",
-    "model": ""
+    "model": "",
+    "addCount": 0
   }
 ]

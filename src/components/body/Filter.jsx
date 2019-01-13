@@ -6,15 +6,15 @@ export default class FilterMenu extends Component {
 
     handleParts = (e, { name }) => {
         this.props.setFilterParts(name);
-    }
+    };
 
     handleSmartphones = (e, { name }) => {
         this.props.setFilterSmartphones(name);
-    }
+    };
 
     handleSearch = (e) => {
         this.props.setSearchQuery(e.target.value);
-    }
+    };
 
     renderParts() {
         const { modelsParts } = this.props;
@@ -75,7 +75,7 @@ export default class FilterMenu extends Component {
 
     render() {
         return (
-            <Menu vertical {...this.props.siteColor}>
+            <Menu vertical {...this.props.siteColor} >
                 <Menu.Item>
                     <Input placeholder='Поиск...' icon="search" value={this.props.filter.searchQuery} onChange={this.handleSearch} />
                 </Menu.Item>

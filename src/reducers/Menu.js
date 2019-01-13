@@ -9,5 +9,5 @@ export const menuPage = handleActions({
 }, 'Home');
 
 export const siteColor = () => {
-    return { color: "green" };
+    return { color: 'green' };
 };

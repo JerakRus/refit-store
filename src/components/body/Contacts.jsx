@@ -24,6 +24,6 @@ const Contacts = () => {
             <GoogleMap />
         </Container>
     );
-}
+};
 
 export default Contacts;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 
@@ -24,5 +23,5 @@ export const setParts = () => async (dispatch) => {
     } catch (e) {
         console.log(e);
         dispatch(setPartsFailure());
-    };
+    }
 };

@@ -7,7 +7,7 @@ const mapStateToProps = state => {
     const props = {
         menuPage: state.menuPage,
         siteColor: state.siteColor,
-        count: state.cart.items.reduce((acc, item) => acc + 1, 0),
+        count: state.cart.reduce((acc, item) => acc + item.addCount, 0),
     };
     return props;
 };

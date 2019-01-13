@@ -3,7 +3,7 @@ import { Button, Card, Icon, Image} from 'semantic-ui-react';
 
 
 const ItemShop = (props) => {
-    const { item, addedCount } = props;
+    const { item } = props;
 
     const handlerToCart = item => e => {
         props.addToCart(item);
@@ -23,7 +23,7 @@ const ItemShop = (props) => {
             <Card.Content extra>
                 <div className='ui two buttons'>
                     <Button basic {...props.siteColor} onClick={handlerToCart(item)}>
-                        Добавить в корзину &nbsp; {addedCount > 0 && `(${addedCount})`}
+                        Добавить в корзину &nbsp; {item.addCount > 0 && `(${item.addCount})`}
                     </Button>
                 </div>
             </Card.Content>

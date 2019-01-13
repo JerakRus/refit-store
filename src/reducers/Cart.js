@@ -1,23 +1,18 @@
 import { handleActions } from 'redux-actions';
 import * as actionsCart from '../actions/cart';
-import { combineReducers } from "redux";
 
-const initState = {
-    items: [],
-};
 
-const items = handleActions({
+const cart = handleActions({
     [actionsCart.addToCart](state, { payload }) {
-        return [...state, payload];
+        const newState = state.includes(payload) ? state : [...state, payload];
+        return newState;
     },
     [actionsCart.removeFromCart](state, { payload }) {
-        return state.filter(item => item.id !== payload.id);
+        const newState = state.filter(i => i.addCount > 0);
+        return newState;
     }
 }, []);
 
 
-const cart = combineReducers({
-    items,
-});
 
 export default cart;
