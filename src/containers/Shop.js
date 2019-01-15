@@ -4,10 +4,10 @@ import Shop from '../components/body/Shop';
 
 const search = (items, searchQuery) => {
     return items.filter(i =>
-        i.model.toLowerCase().indexOf(searchQuery) >= 0 ||
-        i.firm.toLowerCase().indexOf(searchQuery) >= 0 ||
-        i.title.toLowerCase().indexOf(searchQuery) >= 0 ||
-        i.description.toLowerCase().indexOf(searchQuery) >= 0);
+        i.model.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+        i.firm.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+        i.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+        i.description.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0);
 };
 
 const sortParts = (items, filterParts) => {

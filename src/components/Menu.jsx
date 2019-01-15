@@ -13,7 +13,7 @@ export default class MenuTop extends Component {
     render() {
         const { menuPage, siteColor } = this.props;
         return (
-            <Menu {...siteColor}>
+            <Menu {...siteColor} >
                 <Menu.Item name="Home" active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
                     Главная &nbsp;
                     <Icon name='home' color="green"/>
@@ -26,7 +26,7 @@ export default class MenuTop extends Component {
                     Контакты &nbsp;
                     <Icon name='address book outline' color ="black"/>
                 </Menu.Item>
-                <Menu.Menu position='right'>
+                <Menu.Menu position="right">
                     { menuPage === 'Shop' &&
                         <Menu.Item name="Cart" active={menuPage === 'Cart'} onClick={this.handleItemClick('Cart')}>
                             <Icon name='cart arrow down' color="red"/>
