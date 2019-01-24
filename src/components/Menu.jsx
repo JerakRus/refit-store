@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Icon, Menu} from 'semantic-ui-react';
-
+import { Link } from "react-router-dom";
 
 export default class MenuTop extends Component {
 
@@ -9,31 +9,36 @@ export default class MenuTop extends Component {
         this.props.reset();
     };
 
-
     render() {
         const { menuPage, siteColor } = this.props;
         return (
             <Menu {...siteColor} >
-                <Menu.Item name="Home" active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
+                <Link to='/'>
+                <Menu.Item as='div' name="Home" active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
                     Главная &nbsp;
                     <Icon name='home' color="green"/>
                 </Menu.Item>
-                <Menu.Item name="Shop" active={menuPage === 'Shop'} onClick={this.handleItemClick('Shop')}>
+                </Link>
+                <Link to='/shop'>
+                <Menu.Item as='div' name="Shop" active={menuPage === 'Shop'} onClick={this.handleItemClick('Shop')}>
                     Магазин &nbsp;
                     <Icon name='cart plus' color="blue" />
                 </Menu.Item>
-                <Menu.Item name="Contacts" active={menuPage === 'Contacts'} onClick={this.handleItemClick('Contacts')}>
+                </Link>
+                <Link to='/contacts'>
+                <Menu.Item as='div' name="Contacts" active={menuPage === 'Contacts'} onClick={this.handleItemClick('Contacts')}>
                     Контакты &nbsp;
                     <Icon name='address book outline' color ="black"/>
                 </Menu.Item>
+                </Link>
                 <Menu.Menu position="right">
-                    { menuPage === 'Shop' &&
-                        <Menu.Item name="Cart" active={menuPage === 'Cart'} onClick={this.handleItemClick('Cart')}>
+                    <Link to='/cart'>
+                        <Menu.Item as='div' name="Cart" active={menuPage === 'Cart'} onClick={this.handleItemClick('Cart')} position='right'>
                             <Icon name='cart arrow down' color="red"/>
                             &nbsp;`Корзина &nbsp;
                             ({this.props.count})
                         </Menu.Item>
-                    }
+                    </Link>
                     <Menu.Item fitted="vertically"  link href="https://api.whatsapp.com/send?phone=79999899947&text=" target="_blank">
                         <Icon name='whatsapp square' color="green" fitted />
                     </Menu.Item>

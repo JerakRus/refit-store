@@ -22,7 +22,7 @@ const items = handleActions({
     },
     [actionsCart.addToCart](state, { payload }) {
         const newState =  state.map(i => {
-            if (i.id === payload.id) {
+            if (i._id === payload._id) {
                 i.addCount += 1;
             }
             return i;
@@ -31,7 +31,7 @@ const items = handleActions({
     },
     [actionsCart.removeFromCart](state, { payload }) {
         const newState =  state.map(i => {
-            if (i.id === payload.id) {
+            if (i._id === payload._id) {
                 i.addCount -= 1;
             }
             return i;
@@ -42,7 +42,11 @@ const items = handleActions({
 
 const models = handleActions({
     [setModelsSmartphones] (state, { payload }) {
-        return payload;
+        const models = payload.reduce((acc, item) => {
+            const md = `${item.firm}`;
+            return acc.includes(md) ? acc : [...acc, md];
+        }, []);
+        return models;
     }
 }, []);
 

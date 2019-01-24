@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter} from "react-router-dom";
 import Cart from '../components/body/Cart';
 import * as actionsCart from '../actions/cart';
-import { switchPage } from '../actions/Menu';
+import { switchPage} from "../actions/menu";
 
 
 const mapStateToProps = state => {
@@ -14,11 +15,11 @@ const mapStateToProps = state => {
 };
 
 const actions = {
-    ...actionsCart,
     switchPage,
-}
+    ...actionsCart,
+};
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     actions,
-)(Cart);
+)(Cart));

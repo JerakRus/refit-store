@@ -11,7 +11,7 @@ export const setNumbersFailure = createAction('SET_NUMBERS_FAILURE');
 export const setNumbers = () => async (dispatch) => {
     dispatch(setNumbersRequest());
     try {
-        const response = await axios.get('/numbers.json');
+        const response = await axios.get('/api/numbers');
         dispatch(setNumbersSuccess({ numbers: response.data }));
     } catch (e) {
         console.log(e);

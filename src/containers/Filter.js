@@ -5,8 +5,8 @@ import * as actionsFilter from '../actions/filter';
 
 const mapStateToProps = state => {
     const props = {
-        modelsParts: state.parts.models,
-        modelsSmartphones: state.smartphones.models,
+        modelsParts: state.parts.models.sort(),
+        modelsSmartphones: state.smartphones.models.sort(),
         filter: state.filter,
         siteColor: state.siteColor,
     };

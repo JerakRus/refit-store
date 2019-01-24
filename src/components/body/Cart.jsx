@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Item , Icon} from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 import _ from 'lodash';
+
 
 const Cart = (props) => {
     const { items } = props;
@@ -11,26 +13,35 @@ const Cart = (props) => {
     const handlerRemove = item => e => {
         props.removeFromCart(item);
     };
-    const handlerBack = page => e => {
-        props.switchPage(page);
+    const handlerBackPage = page => e => {
+      props.switchPage(page);
     };
+
 
     return ( !items.length ? (
         <div style={{ textAlign: "center" }}>
             Корзина пуста...
+
             <Item>
                 <Item.Content>
-                    <Button basic {...props.siteColor} onClick={handlerBack('Shop')}> Назад </Button>
+                    <Link to='/shop'>
+                    <Button basic {...props.siteColor} onClick={handlerBackPage('Shop')}>
+                        Назад
+                    </Button>
+                    </Link>
                 </Item.Content>
             </Item>
+
         </div>
          ) : (
              <Item.Group relaxed>
                    <Item>
                        <Item.Content>
-                           <Button basic {...props.siteColor} floated='right' onClick={handlerBack('Shop')}>
+                           <Link to='/shop'>
+                           <Button basic {...props.siteColor} floated='right' onClick={handlerBackPage('Shop')}>
                                Назад
                            </Button>
+                           </Link>
                        </Item.Content>
                    </Item>
                    {items.map(item => (
@@ -57,10 +68,16 @@ const Cart = (props) => {
                            <Item.Header>
                                Итого: &nbsp; {props.total} &nbsp; рублей.
                            </Item.Header>
-                           <Button basic {...props.siteColor} floated='right'>Оформить Заказ</Button>
-                           <Button basic {...props.siteColor} floated='right' onClick={handlerBack('Shop')}>
+                           <Link to='/createOrder'>
+                               <Button {...props.siteColor} floated='right'>
+                                   Оформить заказ
+                               </Button>
+                           </Link>
+                           <Link to='/shop'>
+                           <Button basic {...props.siteColor} floated='right' onClick={handlerBackPage('Shop')}>
                                Назад
                            </Button>
+                           </Link>
                        </Item.Content>
                    </Item>
                    </Item.Group>

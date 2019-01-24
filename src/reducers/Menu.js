@@ -1,11 +1,10 @@
 import { handleActions } from 'redux-actions';
-import * as actionsMenu from '../actions/Menu';
-
+import * as actions from '../actions/menu';
 
 export const menuPage = handleActions({
-    [actionsMenu.switchPage](state, { payload }) {
+    [actions.switchPage](state, { payload }) {
         return payload;
-    }
+    },
 }, 'Home');
 
 export const siteColor = () => {

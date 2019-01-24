@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import ItemShop from '../components/body/ItemShop';
-import * as actionsMenu from '../actions/Menu';
 import { addToCart } from '../actions/cart';
 
 const mapStateToProps = (state, { item }) => {
@@ -12,7 +11,6 @@ const mapStateToProps = (state, { item }) => {
 };
 
 const actions = {
-    ...actionsMenu,
     addToCart,
 };
 

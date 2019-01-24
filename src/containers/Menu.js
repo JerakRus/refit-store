@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
 import Menu from '../components/Menu';
-import * as actionsMenu from '../actions/Menu';
 import { reset } from '../actions/filter';
+import { switchPage } from "../actions/menu";
 
 const mapStateToProps = state => {
     const props = {
@@ -13,11 +14,11 @@ const mapStateToProps = state => {
 };
 
 const actions = {
-    ...actionsMenu,
-    reset,
+    switchPage,
+    reset
 };
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     actions,
-)(Menu);
+)(Menu));

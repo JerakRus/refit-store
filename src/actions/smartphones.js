@@ -13,13 +13,9 @@ export const setModelsSmartphones = createAction('SET_MODELS_SMARTPHONES');
 export const setSmartphones = () => async (dispatch) => {
     dispatch(setSmartphonesRequest());
     try {
-        const response = await axios.get('/smartphones.json');
+        const response = await axios.get('/api/phones');
         dispatch(setSmartphonesSuccess({ smartphones: response.data }));
-        const models = response.data.reduce((acc, item) => {
-            const md = `${item.firm}`;
-            return acc.includes(md) ? acc : [...acc, md];
-        }, []);
-        dispatch(setModelsSmartphones(models));
+        dispatch(setModelsSmartphones(response.data));
     } catch (e) {
         console.log(e);
         dispatch(setSmartphonesFailure());
