@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { reduxForm, Field } from "redux-form";
 import { Container, Form, Button} from 'semantic-ui-react';
 import { LabelInputField, TextAreaField } from 'react-semantic-redux-form';
@@ -14,7 +15,7 @@ class NewOrderForm extends React.Component {
 
     render() {
         return (
-            <Container textAlign='center'>
+            <Container>
             <Form widths='equal' onSubmit={this.props.handleSubmit(this.createOrder)}>
                 <Form.Group>
                     <Field name='name' required
@@ -31,7 +32,8 @@ class NewOrderForm extends React.Component {
                        label='Комментарии к заказу:'
 
                 />
-                <Button type="submit" {...this.props.siteColor}>Оформить</Button>
+                <Button type="submit" floated='right' {...this.props.siteColor}>Оформить</Button>
+                <Link to='/cart'> <Button type="submit" color='red'>Назад</Button> </Link>
             </Form>
             </Container>
         );
