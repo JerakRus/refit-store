@@ -10,7 +10,7 @@ export const sendToMailFailure = createAction('SEND_MAIL_FAILURE');
 export const sendToMail = (data) => async (dispatch) => {
     dispatch(sendToMailRequest());
     try {
-        const response = await axios.post('/api/sendToMail', data);
+        await axios.post('/api/sendToMail', data);
         dispatch(sendToMailSuccess());
     } catch (e) {
         console.log(e);
