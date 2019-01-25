@@ -13,7 +13,7 @@ export const sendToMail = (data) => async (dispatch) => {
         await axios.post('/api/sendToMail', data);
         dispatch(sendToMailSuccess());
     } catch (e) {
-        console.log(e);
+        alert(`Не получилось создать заказ, неполадки на сервере :( ${e}`);
         dispatch(sendToMailFailure());
     }
 };

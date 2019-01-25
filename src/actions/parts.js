@@ -17,7 +17,7 @@ export const setParts = () => async (dispatch) => {
         dispatch(setPartsSuccess({ parts: response.data }));
         dispatch(setModelsParts(response.data));
     } catch (e) {
-        console.log(e);
+        alert(`Не получилось загрузить список запчастей, неполадки на сервере :( ${e}`);
         dispatch(setPartsFailure());
     }
 };

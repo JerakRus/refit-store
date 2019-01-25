@@ -17,7 +17,7 @@ export const setSmartphones = () => async (dispatch) => {
         dispatch(setSmartphonesSuccess({ smartphones: response.data }));
         dispatch(setModelsSmartphones(response.data));
     } catch (e) {
-        console.log(e);
+        alert(`Не получилось загрузить список телефонов, неполадки на сервере :( ${e}`);
         dispatch(setSmartphonesFailure());
     }
 };

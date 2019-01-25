@@ -14,7 +14,7 @@ export const setNumbers = () => async (dispatch) => {
         const response = await axios.get('/api/numbers');
         dispatch(setNumbersSuccess({ numbers: response.data }));
     } catch (e) {
-        console.log(e);
+        alert(`Не получилось загрузить список красивых номеров, неполадки на сервере :( ${e}`);
         dispatch(setNumbersFailure());
     }
 };
