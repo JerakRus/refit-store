@@ -18,9 +18,7 @@ import OrderCreated from './body/OrderCreated';
 
 class App extends Component {
     componentWillMount() {
-        this.props.setParts();
-        this.props.setSmartphones();
-        this.props.setNumbers();
+        this.props.setItems();
         this.props.history.push('/');
     }
 

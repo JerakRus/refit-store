@@ -1,23 +1,13 @@
 import { handleActions } from 'redux-actions';
-import * as actionsSmartphones from '../../actions/smartphones';
-import * as actionsCart from "../../actions/cart";
-import {setModelsSmartphones} from "../../actions/smartphones";
 import {combineReducers} from "redux";
+import * as actions from '../../actions/items';
+import * as actionsCart from "../../actions/cart";
 
-const setState = handleActions({
-    [actionsSmartphones.setSmartphonesRequest]() {
-        return 'requested';
-    },
-    [actionsSmartphones.setSmartphonesSuccess]() {
-        return 'successed';
-    },
-    [actionsSmartphones.setSmartphonesFailure]() {
-        return 'failed';
-    },
-}, 'none');
+
 
 const items = handleActions({
-    [actionsSmartphones.setSmartphonesSuccess](state, { payload: { smartphones } }) {
+    [actions.setItemsSuccess](state, { payload: { items } }) {
+        const smartphones = items.filter(item => item.type === 'phones');
         return [...state, ...smartphones];
     },
     [actionsCart.addToCart](state, { payload }) {
@@ -41,8 +31,9 @@ const items = handleActions({
 }, []);
 
 const models = handleActions({
-    [setModelsSmartphones] (state, { payload }) {
-        const models = payload.reduce((acc, item) => {
+    [actions.setModelsItems] (state, { payload }) {
+        const smartphones = items.filter(item => item.type === 'phones');
+        const models = smartphones.reduce((acc, item) => {
             const md = `${item.firm}`;
             return acc.includes(md) ? acc : [...acc, md];
         }, []);
@@ -53,7 +44,6 @@ const models = handleActions({
 const smartphones = combineReducers({
     items,
     models,
-    setState,
 });
 
 export default smartphones;

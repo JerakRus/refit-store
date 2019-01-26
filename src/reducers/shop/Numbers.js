@@ -1,23 +1,12 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers} from "redux";
-import * as actions from '../../actions/numbers';
+import * as actions from '../../actions/items';
 import * as actionsCart from "../../actions/cart";
 
 
-const SetState = handleActions({
-    [actions.setNumbersRequest]() {
-        return 'requested';
-    },
-    [actions.setNumbersSuccess]() {
-        return 'successed';
-    },
-    [actions.setNumbersFailure]() {
-        return 'failed';
-    },
-}, 'none');
-
 const items = handleActions({
-    [actions.setNumbersSuccess](state, { payload: { numbers } }) {
+    [actions.setItemsSuccess](state, { payload: { items } }) {
+        const numbers = items.filter(item => item.type === 'numbers');
         return [...state, ...numbers];
     },
     [actionsCart.addToCart](state, { payload }) {
@@ -42,7 +31,6 @@ const items = handleActions({
 
 const numbers = combineReducers({
     items,
-    SetState,
 });
 
 export default numbers;

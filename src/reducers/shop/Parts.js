@@ -1,23 +1,12 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from "redux";
-import * as actions from '../../actions/parts';
+import * as actions from '../../actions/items';
 import * as actionsCart from '../../actions/cart';
-import {setModelsParts} from "../../actions/parts";
 
-const setState = handleActions({
-    [actions.setPartsRequest]() {
-        return 'requested';
-    },
-    [actions.setPartsSuccess]() {
-        return 'successed';
-    },
-    [actions.setPartsFailure]() {
-        return 'failed';
-    },
-}, 'none');
 
 const items = handleActions({
-    [actions.setPartsSuccess](state, { payload: { parts } }) {
+    [actions.setItemsSuccess](state, { payload: { items } }) {
+        const parts = items.filter(item => item.type === 'parts');
         return [...state, ...parts];
     },
     [actionsCart.addToCart](state, { payload }) {
@@ -41,8 +30,9 @@ const items = handleActions({
 }, []);
 
 const models = handleActions({
-    [setModelsParts] (state, { payload }) {
-        const models = payload.reduce((acc, item) => {
+    [actions.setModelsItems] (state, { payload }) {
+        const parts = payload.filter(item => item.type === 'parts');
+        const models = parts.reduce((acc, item) => {
             const md = `${item.firm} ${item.model}`;
             return acc.includes(md) ? acc : [...acc, md];
         }, []);
@@ -53,7 +43,6 @@ const models = handleActions({
 const parts = combineReducers({
     items,
     models,
-    setState,
 });
 
 export default parts;
