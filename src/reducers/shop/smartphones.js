@@ -32,7 +32,7 @@ const items = handleActions({
 
 const models = handleActions({
     [actions.setModelsItems] (state, { payload }) {
-        const smartphones = items.filter(item => item.type === 'phones');
+        const smartphones = payload.filter(item => item.type === 'phones');
         const models = smartphones.reduce((acc, item) => {
             const md = `${item.firm}`;
             return acc.includes(md) ? acc : [...acc, md];
