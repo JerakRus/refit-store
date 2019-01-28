@@ -12,7 +12,7 @@ export default class MenuTop extends Component {
     render() {
         const { menuPage, siteColor } = this.props;
         return (
-            <Menu {...siteColor} >
+            <Menu {...siteColor} stackable>
                 <Link to='/'>
                 <Menu.Item as='div' name="Home" active={menuPage === 'Home'} onClick={this.handleItemClick('Home')}>
                     Главная &nbsp;
@@ -35,20 +35,20 @@ export default class MenuTop extends Component {
                     <Link to='/cart'>
                         <Menu.Item as='div' name="Cart" active={menuPage === 'Cart'} onClick={this.handleItemClick('Cart')} position='right'>
                             <Icon name='cart arrow down' color="red"/>
-                            &nbsp;`Корзина &nbsp;
+                            &nbsp;Корзина &nbsp;
                             ({this.props.count})
                         </Menu.Item>
                     </Link>
-                    <Menu.Item fitted="vertically"  link href="https://api.whatsapp.com/send?phone=79999899947&text=" target="_blank">
+                    <Menu.Item   link href="https://api.whatsapp.com/send?phone=79999899947&text=" target="_blank">
                         <Icon name='whatsapp square' color="green" fitted />
                     </Menu.Item>
-                    <Menu.Item fitted="vertically"  link href="https://vk.com/refitstore" target="_blank">
+                    <Menu.Item  link href="https://vk.com/refitstore" target="_blank">
                         <Icon name='vk' color="blue" fitted />
                     </Menu.Item>
-                    <Menu.Item fitted="vertically" link href="https://www.instagram.com/refitstore_official/" target="_blank" >
+                    <Menu.Item  link href="https://www.instagram.com/refitstore_official/" target="_blank" >
                         <Icon name='instagram' color="purple" fitted />
                     </Menu.Item>
-                    <Menu.Item fitted="vertically" link href="mailto:RefitStore47@mail.ru" target="_blank" >
+                    <Menu.Item  link href="mailto:RefitStore47@mail.ru" target="_blank" >
                         <Icon name='mail' color="blue" fitted />
                     </Menu.Item>
                 </Menu.Menu>
