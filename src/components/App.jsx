@@ -4,11 +4,11 @@ import { Switch, Route } from "react-router-dom";
 
 
 import MenuContainer from '../containers/Menu';
-import Home from "./body/Home";
+import HomeContainer from "../containers/Home";
 import Contacts from "./body/Contacts";
 import CartContainer from "../containers/Cart";
 import ShopContainer from "../containers/Shop";
-import NewOrderForm from '../containers/NewOrderForm';
+import NewOrderFormContainer from '../containers/NewOrderForm';
 import Logo from './Logo';
 import Footer from './Footer';
 import OrderCreated from './body/OrderCreated';
@@ -19,6 +19,7 @@ import OrderCreated from './body/OrderCreated';
 class App extends Component {
     componentWillMount() {
         this.props.setItems();
+        this.props.setPosts();
         this.props.history.push('/');
     }
 
@@ -28,11 +29,11 @@ class App extends Component {
             <Logo />
             <MenuContainer />
             <Switch>
-                <Route path='/' exact component={Home} />
+                <Route path='/' exact component={HomeContainer} />
                 <Route path='/shop' component={ShopContainer} />
                 <Route path='/cart' component={CartContainer} />
                 <Route path='/contacts' component={Contacts} />
-                <Route path='/createOrder' component={NewOrderForm} />
+                <Route path='/createOrder' component={NewOrderFormContainer} />
                 <Route path='/orderCreated' component={OrderCreated} />
             </Switch>
             <Footer {...this.props.siteColor} />
