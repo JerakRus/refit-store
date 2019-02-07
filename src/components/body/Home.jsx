@@ -1,11 +1,11 @@
 import React from 'react';
-import Post from './Post';
+import PostContainer from '../../containers/Post';
 import { Container, Segment } from "semantic-ui-react";
 
 const Home = (props) => {
     return (
-      <Container text>
-          {props.posts.map(post => <Post key={post._id} post={post}/>)}
+      <Container >
+          {props.posts.map(post => <PostContainer key={post._id} post={post} />)}
           <Segment vertical />
       </Container>
     );
