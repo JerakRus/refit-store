@@ -12,7 +12,7 @@ export const setPostsFailure = createAction('SET_POSTS_FAILURE');
 export const setPosts = () => async (dispatch) => {
     dispatch(setPostsRequest());
     try {
-        const response = await axios.get('http://localhost:8000/api/posts');
+        const response = await axios.get('/api/posts');
         dispatch(setPostsSuccess({ posts: response.data }));
     } catch (e) {
         alert(`Не получилось загрузить список постов главной страницы, неполадки на сервере :( ${e}`);
