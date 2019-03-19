@@ -13,7 +13,7 @@ export const setModelsItems = createAction('SET_MODELS_ITEMS');
 export const setItems = () => async (dispatch) => {
     dispatch(setItemsRequest());
     try {
-        const response = await axios.get('/api/items');
+        const response = await axios.get('http://localhost:8000/api/items');
         dispatch(setItemsSuccess({ items: response.data }));
         dispatch(setModelsItems(response.data));
     } catch (e) {
